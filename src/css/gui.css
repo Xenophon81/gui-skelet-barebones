@@ -2,7 +2,7 @@
    GUI / LAYOUT / THEME LAYER
    ========================= */
 
-/* ---- design tokens ---- */
+/* ---- design tokens (kleur) ---- */
 
 :root {
   --ui-bg: #f0f1ed;
@@ -16,19 +16,43 @@
   --muted: #b7b9b3;
 }
 
-/* ---- body theme ---- */
+/* =========================
+   BASE TYPOGRAPHY
+   ========================= */
 
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-ui);
 }
 
 body.loading {
   cursor: progress;
 }
 
-/* ---- background theme variant ---- */
+/* ---- headings = boek/display ---- */
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* ---- longform text ---- */
+
+.blog,
+.article,
+.longform,
+main p {
+  font-family: var(--font-text);
+}
+
+/* =========================
+   BACKGROUND VARIANTS
+   ========================= */
 
 .background.purple {
   background: #7067bb;
@@ -51,6 +75,10 @@ body.loading {
 }
 
 /* ---- nav ---- */
+
+.nav {
+  font-family: var(--font-ui);
+}
 
 .nav a {
   margin-left: 24px;
@@ -126,33 +154,74 @@ aside img {
   }
 }
 
+/* ===========*
+
+Dit is mijn 'Peter' CSS-bestand, waarin ik de algemene stijlen en het ontwerp van mijn app definieer. Hierin vind je de basisopmaak voor elementen zoals de body, afbeeldingen, koppen, en specifieke componenten zoals loaders en pagina's. Het bestand bevat ook een grid-systeem en stijlen voor media-asides. De kleuren en lettertypen zijn gedefinieerd als CSS-variabelen voor consistentie in het hele project. 
+=========================
+   BASE STYLES
+========================= */
+
 /* =========================
-   CONTENT TYPES
+   PETER — SPREAD (SANDBOX MODEL)
    ========================= */
 
-.blog {
-  max-width: 720px;
+.spread {
+  display: flex;
+  gap: 40px;
+
+  max-width: 1200px;
   margin: 60px auto;
-  font-family: serif;
-  font-size: 20px;
-  line-height: 1.7;
 }
 
-/* ---- cards ---- */
+.spread--reverse {
+  flex-direction: row-reverse;
+}
 
-.card {
+/* ---- panel ---- */
+
+.panel {
+  flex: 1 1 0;
+  aspect-ratio: 1 / 1;
+
+  position: relative;
   background: white;
-  padding: 28px;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* ---- forms ---- */
+/* inner body */
 
-input,
-textarea {
+.panel__body {
+  height: 100%;
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  margin-bottom: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* image gedrag */
+
+.panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* utility */
+
+.spacer {
+  padding: 32px;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .spread {
+    flex-direction: column;
+    margin: 32px auto;
+  }
 }

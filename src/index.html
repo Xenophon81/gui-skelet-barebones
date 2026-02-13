@@ -68,10 +68,80 @@
 
 </head>
 
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herborist</title>
+
+    <!-- =====================
+     PRECONNECT — fonts eerst
+     ===================== -->
+
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- =====================
+     FONT STYLESHEETS
+     ===================== -->
+
+    <!-- Adobe — Superclarendon -->
+    <link rel="stylesheet" href="https://use.typekit.net/kyn4drz.css">
+
+    <!-- Google — UI + body -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================
+     CSS LAYERS
+     ===================== -->
+
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/gui.css">
+
+    <!-- =====================
+     CRITICAL INLINE CSS
+     ===================== -->
+
+    <style>
+        html,
+        body {
+            margin: 0
+        }
+
+        .loader {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: #f0f1ed;
+            z-index: 999
+        }
+
+        .app {
+            opacity: 0
+        }
+    </style>
+
+    <!-- =====================
+     ICON LIB
+     ===================== -->
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+</head>
 
 <body class="background purple loading">
 
-    <!-- LOADER -->
+    <!-- =====================
+     LOADER
+     ===================== -->
+
     <div id="loader" class="loader">
         <div class="loader-card">
             <i data-lucide="leaf"></i>
@@ -79,13 +149,18 @@
         </div>
     </div>
 
-    <!-- APP -->
+    <!-- =====================
+     APP SHELL
+     ===================== -->
+
     <div class="app" id="app">
 
         <header class="ui-header">
-            <div class="logo">🌿 Herborist</div>
+            <div class="logo">
+                <img src="./assets/img/logo.png" alt="logo herbify">
+            </div>
 
-            <nav>
+            <nav class="nav">
                 <a href="/">Home</a>
                 <a href="/blog">Blog</a>
                 <a href="/product">CBD Zalf</a>
@@ -93,15 +168,46 @@
             </nav>
         </header>
 
-        <main>
-            <h1>Welcome to Herbify</h1>
-            <p>Content…</p>
+        <main class="page active">
+
+            <!-- =====================
+       EDITORIAL SPREAD
+       tekst eerst in DOM
+       ===================== -->
+
+
+            <section class="spread">
+
+                <!-- IMAGE PANEL -->
+                <article class="panel image">
+                    <div class="panel__body">
+                        <img src="./assets/img/aside.png" alt="" loading="lazy" decoding="async">
+                    </div>
+                </article>
+
+                <!-- TEXT PANEL -->
+                <article class="panel text">
+                    <div class="panel__body spacer">
+                        <h1>Hoofdstuk 1</h1>
+                        <p>Het endocannabinoïde systeem…</p>
+                    </div>
+                </article>
+
+            </section>
+
+
+
+
         </main>
 
     </div>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- =====================
+     APP JS
+     ===================== -->
+
     <script src="./assets/js/app.js"></script>
+
 </body>
 
 </html>

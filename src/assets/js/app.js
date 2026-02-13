@@ -1,9 +1,27 @@
-lucide.createIcons();
+/* =========================
+   ICON INIT
+   ========================= */
 
-console.log("Hello, World!");
+if (window.lucide) {
+  lucide.createIcons();
+}
+
+/* =========================
+   DEBUG
+   ========================= */
+
+console.log("App JS loaded");
+
+/* =========================
+   APP SHELL READY
+   ========================= */
 
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("app").classList.add("ready");
-  document.getElementById("loader").classList.add("hide");
+  const app = document.getElementById("app");
+  const loader = document.getElementById("loader");
+
+  if (app) app.classList.add("ready");
+  if (loader) loader.classList.add("hide");
+
   document.body.classList.remove("loading");
 });
