@@ -1,0 +1,49 @@
+/* DEBUG — toon alle boxes */
+
+.debug-boxes * {
+  outline: 1px dashed rgba(255, 0, 0, 0.35);
+}
+
+.debug-layout header {
+  outline: 3px solid blue;
+}
+.debug-layout main {
+  outline: 3px solid green;
+}
+.debug-layout section {
+  outline: 3px solid orange;
+}
+.debug-layout article {
+  outline: 3px solid purple;
+}
+
+.debug-flex {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 255, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 40px 100%;
+}
+
+.debug-ratio {
+  position: relative;
+}
+
+.debug-ratio::after {
+  content: "ratio";
+  position: absolute;
+  inset: 0;
+  border: 3px solid magenta;
+  pointer-events: none;
+}
+
+.debug-img img {
+  background: repeating-linear-gradient(45deg, #000 0 10px, #fff 10px 20px);
+}
+
+/* Overflow hunter (zeer krachtig)
+Dit is mijn favoriet bij mysterieuze scrollbars. */
+.debug-overflow * {
+  box-shadow: 0 0 0 1px red inset;
+}
