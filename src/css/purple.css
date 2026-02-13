@@ -1,0 +1,156 @@
+:root {
+  --paper: #f0f1ed;
+  --ink: #1e1f1c;
+  --card: #1f1f1f;
+  --accent: #a7c957;
+  --muted: #b7b9b3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* cursor like classic OS */
+body.loading {
+  cursor: progress;
+}
+
+/* ---------- loader ---------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  z-index: 999;
+  transition: opacity 0.5s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-card {
+  background: var(--card);
+  color: white;
+  padding: 40px;
+  border-radius: 8px;
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+/* ---------- app settle ---------- */
+
+.app {
+  transform: scale(1.2);
+  opacity: 0;
+  filter: blur(6px);
+  transition: 0.7s ease;
+}
+
+.app.ready {
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* ---------- header ---------- */
+
+.ui-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 36px;
+  border-bottom: 1px solid #d8d9d4;
+  background: #fafaf8;
+}
+
+nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* ---------- page transition ---------- */
+
+.page {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.35s ease;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- grid spread ---------- */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 48px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ---------- skeleton ---------- */
+
+.skeleton {
+  height: 220px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #e0e0dd 25%, #ececea 37%, #e0e0dd 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -400% 0;
+  }
+}
+
+/* ---------- blog ---------- */
+
+.blog {
+  max-width: 720px;
+  margin: 60px auto;
+  font-family: serif;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* ---------- cards ---------- */
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- form ---------- */
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
