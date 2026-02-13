@@ -1,51 +1,44 @@
-@import url(https://db.onlinewebfonts.com/c/b6e1e126bc19c3e9fe26136203746a13?family=Kefa-Regular);
+/* =========================
+   SKELET / FRAMEWORK LAYER
+   ========================= */
+
+/* ---- font face ---- */
+
 @font-face {
   font-family: "Kefa PressS";
-  src: url("https://db.onlinewebfonts.com/t/b6e1e126bc19c3e9fe26136203746a13.eot");
   src:
-    url("https://db.onlinewebfonts.com/t/b6e1e126bc19c3e9fe26136203746a13.eot?#iefix")
-      format("embedded-opentype"),
     url("https://db.onlinewebfonts.com/t/b6e1e126bc19c3e9fe26136203746a13.woff2")
       format("woff2"),
     url("https://db.onlinewebfonts.com/t/b6e1e126bc19c3e9fe26136203746a13.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/b6e1e126bc19c3e9fe26136203746a13.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/b6e1e126bc19c3e9fe26136203746a13.svg#Kefa-Regular")
-      format("svg");
+      format("woff");
+  font-display: swap;
 }
+
 .kefa {
-  font-family: "Kefa PressS";
+  font-family: "Kefa PressS", serif;
 }
+
+/* ---- lato utilities ---- */
 
 .lato-thin {
   font-family: "Lato", sans-serif;
   font-weight: 100;
-  font-style: normal;
 }
-
 .lato-light {
   font-family: "Lato", sans-serif;
   font-weight: 300;
-  font-style: normal;
 }
-
 .lato-regular {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
-
 .lato-bold {
   font-family: "Lato", sans-serif;
   font-weight: 700;
-  font-style: normal;
 }
-
 .lato-black {
   font-family: "Lato", sans-serif;
   font-weight: 900;
-  font-style: normal;
 }
 
 .lato-thin-italic {
@@ -53,30 +46,59 @@
   font-weight: 100;
   font-style: italic;
 }
-
 .lato-light-italic {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   font-style: italic;
 }
-
 .lato-regular-italic {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
-
 .lato-bold-italic {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
-
 .lato-black-italic {
   font-family: "Lato", sans-serif;
   font-weight: 900;
   font-style: italic;
 }
+
+/* =========================
+   RESET / BASELINE
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* ---- media baseline ---- */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto; /* behoud aspect ratio */
+  border: 0;
+}
+
+/* =========================
+   LOADER SYSTEM
+   ========================= */
 
 .loader {
   position: fixed;
@@ -93,11 +115,19 @@
   pointer-events: none;
 }
 
+/* =========================
+   APP SHELL SETTLE ANIMATION
+   ========================= */
+
 .app {
   transform: scale(1.15);
   opacity: 0;
   filter: blur(4px);
-  transition: 0.6s ease;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease,
+    filter 0.6s ease;
 }
 
 .app.ready {
