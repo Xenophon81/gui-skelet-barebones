@@ -1,8 +1,16 @@
-/* =========================
+/* ======================================================
    GUI / LAYOUT / THEME LAYER
-   ========================= */
+   ------------------------------------------------------
+   Presentatielaag bovenop app.css (skelet / reset / tokens).
+   Bevat: kleur tokens, typografie, layout en componenten.
 
-/* ---- design tokens (kleur) ---- */
+   app.css = framework
+   gui.css = uiterlijk + componenten
+   ====================================================== */
+
+/* =========================
+   DESIGN TOKENS — KLEUREN
+   ========================= */
 
 :root {
   --ui-bg: #f0f1ed;
@@ -30,7 +38,25 @@ body.loading {
   cursor: progress;
 }
 
-/* ---- headings = boek/display ---- */
+/* =========================
+   LAYOUT HELPERS
+   ========================= */
+
+/* gecentreerde content container */
+
+.container {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+}
+
+/* horizontale overflow guard bij full-bleed backgrounds */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* ---- display/headings ---- */
 
 h1,
 h2,
@@ -41,7 +67,7 @@ h3,
   letter-spacing: 0.02em;
 }
 
-/* ---- longform text ---- */
+/* ---- longform tekst ---- */
 
 .blog,
 .article,
@@ -69,9 +95,19 @@ main p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px 36px;
+
   border-bottom: 1px solid #d8d9d4;
   background: #fafaf8;
+}
+
+/* logo constraint — voorkomt overflow */
+
+.logo img {
+  max-height: 48px;
+  width: auto;
+  display: block;
 }
 
 /* ---- nav ---- */
@@ -92,12 +128,13 @@ main p {
 }
 
 /* =========================
-   PAGE TRANSITION (view layer)
+   PAGE TRANSITION
    ========================= */
 
 .page {
   opacity: 0;
   transform: translateY(10px);
+
   transition:
     opacity 0.35s ease,
     transform 0.35s ease;
@@ -109,20 +146,21 @@ main p {
 }
 
 /* =========================
-   GRID SYSTEM
+   GRID UTILITY (LEGACY)
    ========================= */
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
+
   padding: 48px;
   max-width: 1200px;
   margin: auto;
 }
 
 /* =========================
-   MEDIA / ASIDE
+   ASIDE MEDIA
    ========================= */
 
 aside {
@@ -137,13 +175,15 @@ aside img {
 }
 
 /* =========================
-   SKELETON PLACEHOLDER
+   SKELETON LOADER
    ========================= */
 
 .skeleton {
   height: 220px;
   border-radius: 6px;
+
   background: linear-gradient(90deg, #e0e0dd 25%, #ececea 37%, #e0e0dd 63%);
+
   background-size: 400% 100%;
   animation: shimmer 1.4s infinite;
 }
@@ -154,30 +194,30 @@ aside img {
   }
 }
 
-/* ===========*
-
-Dit is mijn 'Peter' CSS-bestand, waarin ik de algemene stijlen en het ontwerp van mijn app definieer. Hierin vind je de basisopmaak voor elementen zoals de body, afbeeldingen, koppen, en specifieke componenten zoals loaders en pagina's. Het bestand bevat ook een grid-systeem en stijlen voor media-asides. De kleuren en lettertypen zijn gedefinieerd als CSS-variabelen voor consistentie in het hele project. 
-=========================
-   BASE STYLES
-========================= */
-
-/* =========================
-   PETER — SPREAD (SANDBOX MODEL)
-   ========================= */
+/* ======================================================
+   SPREAD COMPONENT — FLEX + RATIO
+   ------------------------------------------------------
+   Twee gelijke panelen naast elkaar.
+   Vierkant op desktop.
+   Markdown-proof.
+   ====================================================== */
 
 .spread {
   display: flex;
   gap: 40px;
 
+  width: 100%;
   max-width: 1200px;
   margin: 60px auto;
 }
+
+/* desktop swap */
 
 .spread--reverse {
   flex-direction: row-reverse;
 }
 
-/* ---- panel ---- */
+/* ---- panel geometry ---- */
 
 .panel {
   flex: 1 1 0;
@@ -191,7 +231,7 @@ Dit is mijn 'Peter' CSS-bestand, waarin ik de algemene stijlen en het ontwerp va
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* inner body */
+/* ---- inner wrapper ---- */
 
 .panel__body {
   height: 100%;
@@ -202,7 +242,7 @@ Dit is mijn 'Peter' CSS-bestand, waarin ik de algemene stijlen en het ontwerp va
   justify-content: center;
 }
 
-/* image gedrag */
+/* ---- image behavior ---- */
 
 .panel img {
   width: 100%;
@@ -211,17 +251,53 @@ Dit is mijn 'Peter' CSS-bestand, waarin ik de algemene stijlen en het ontwerp va
   display: block;
 }
 
-/* utility */
+/* ---- spacing utility ---- */
 
 .spacer {
   padding: 32px;
 }
 
-/* responsive */
+/* =========================
+   ORDER UTILITIES
+   ========================= */
+
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.order-3 {
+  order: 3;
+}
+.order-4 {
+  order: 4;
+}
+
+/* =========================
+   RESPONSIVE — TABLET / MOBILE
+   ------------------------------------------------------
+   Stack panelen.
+   Ratio loslaten → leesbaarheid wint.
+   ========================= */
 
 @media (max-width: 900px) {
   .spread {
     flex-direction: column;
     margin: 32px auto;
+    gap: 24px;
   }
+
+  .panel {
+    aspect-ratio: auto;
+    min-height: 260px;
+  }
+}
+
+/* =========================
+   LOADER GUARD
+   ========================= */
+
+.loader {
+  overflow: hidden;
 }

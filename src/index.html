@@ -7,107 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herborist</title>
 
-    <!-- =====================
-     PRECONNECT — fonts eerst
-     ===================== -->
-
+    <!-- fonts -->
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- =====================
-     FONT STYLESHEETS
-     ===================== -->
-
-    <!-- Adobe Fonts — Superclarendon -->
     <link rel="stylesheet" href="https://use.typekit.net/kyn4drz.css">
 
-    <!-- Google Fonts — UI + body -->
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- =====================
-     CRITICAL CSS — skelet eerst
-     ===================== -->
-
+    <!-- css -->
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/gui.css">
+    <link rel="stylesheet" href="./css/debug.css">
 
-    <!-- =====================
-     CRITICAL INLINE CSS (optioneel)
-     alleen loader + app shell
-     ===================== -->
-
-    <style>
-        /* minimal critical path */
-        html,
-        body {
-            margin: 0
-        }
-
-        .loader {
-            position: fixed;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            background: #f0f1ed;
-            z-index: 999
-        }
-
-        .app {
-            opacity: 0
-        }
-    </style>
-
-    <!-- =====================
-     ICON LIB — non blocking
-     ===================== -->
-
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-
-</head>
-
-<!DOCTYPE html>
-<html lang="nl">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herborist</title>
-
-    <!-- =====================
-     PRECONNECT — fonts eerst
-     ===================== -->
-
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- =====================
-     FONT STYLESHEETS
-     ===================== -->
-
-    <!-- Adobe — Superclarendon -->
-    <link rel="stylesheet" href="https://use.typekit.net/kyn4drz.css">
-
-    <!-- Google — UI + body -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Source+Serif+4:wght@400;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- =====================
-     CSS LAYERS
-     ===================== -->
-
-    <link rel="stylesheet" href="./css/app.css">
-    <link rel="stylesheet" href="./css/gui.css">
-
-    <!-- =====================
-     CRITICAL INLINE CSS
-     ===================== -->
-
+    <!-- critical -->
     <style>
         html,
         body {
@@ -128,13 +44,10 @@
         }
     </style>
 
-    <!-- =====================
-     ICON LIB
-     ===================== -->
-
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
 </head>
+
 
 <body class="background purple loading">
 
@@ -153,9 +66,9 @@
      APP SHELL
      ===================== -->
 
-    <div class="app" id="app">
+    <div class="app container" id="app">
 
-        <header class="ui-header">
+        <header class="ui-header container">
             <div class="logo">
                 <img src="./assets/img/logo.png" alt="logo herbify">
             </div>
