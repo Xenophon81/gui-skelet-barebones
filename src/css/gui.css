@@ -34,6 +34,16 @@ body {
   font-family: var(--font-ui);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+
 body.loading {
   cursor: progress;
 }
@@ -128,14 +138,11 @@ main p {
   display: flex;
   align-items: center;
   gap: 28px;
-
-  font-family: var(--font-ui);
-  font-size: 15px;
 }
 
 .nav a {
   position: relative;
-
+  font-weight: bolder;
   text-decoration: none;
   color: var(--ink);
   opacity: 0.75;
