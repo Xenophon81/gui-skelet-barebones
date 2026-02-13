@@ -1,0 +1,18 @@
+{
+  "name": "gui-skelet-barebones",
+  "version": "1.0.0",
+  "description": "Herborist / Herbify layout — HTML CSS JS met Parcel dev server",
+  "private": true,
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xenophon81/gui-skelet-barebones.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
